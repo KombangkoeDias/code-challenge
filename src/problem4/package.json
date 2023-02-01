@@ -1,0 +1,15 @@
+{
+  "name": "problem4",
+  "version": "1.0.0",
+  "description": "script to retrieve holders of a token address on bsc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "fs": "^0.0.1-security"
+  }
+}

@@ -1,0 +1,78 @@
+.fancy-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.1);
+    width: 50vw;
+  }
+  
+  .fancy-form__input {
+    font-size: 1rem;
+    width: 80%;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .fancy-form__input:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  .fancy-form__error {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #f44336;
+  }
+
+  .fancy-form__button_col {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  
+  .fancy-form__submit__button {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .fancy-form__clear__button {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #8c948c;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .fancy-form__clear__button:hover {
+    cursor: pointer;
+    background-color: #bfc5bf;
+  }
+  
+  .fancy-form__submit__button:hover  {
+    cursor: pointer;
+    background-color: #3E8E41;
+  }
+  
+.super-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

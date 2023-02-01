@@ -1,0 +1,42 @@
+@startuml
+title Sequence diagram for the transaction broadcaster service
+
+Actor User
+
+Participant "Admin Page" as Admin
+
+participant API as API
+participant "Kafka Queue" as Kafka
+participant "Kafka Consumer" as Consumer
+participant "Blockchain Network" as Network
+participant Database as DB
+
+
+User -> API : POST /broadcast_transaction
+
+API -> Kafka : publish transaction broadcast message
+note right of API: API receives broadcast transaction request and\n pushes the transaction to a Kafka topic
+
+API -> User : HTTP 200 OK
+note right of API: API returns HTTP 200 OK to the client to\n indicate the successful receipt of the request
+ 
+Kafka -> Consumer : consume transaction broadcast message
+
+
+Consumer -> Consumer : Validate Transaction & Check if already broadcasted
+
+Consumer -> Network : RPC Request to broadcast the transaction
+
+Network -> Consumer : Broadcast Result
+
+Consumer -> DB : Store broadcast status of the transaction
+
+Consumer -> Consumer : Retry if failed
+
+Consumer -> DB : Store broadcast status of the transaction
+
+Admin -> DB : View list of transactions and their broadcast status
+
+Admin -> Consumer : Retry a failed broadcast
+
+@enduml

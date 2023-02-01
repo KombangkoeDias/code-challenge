@@ -1,0 +1,35 @@
+@startuml
+title Transaction Broadcaster Service Architecture
+
+package "Internal API" {
+  [API Server]
+  [Kafka Producer]
+}
+
+package "Message Queue" {
+  [Kafka]
+}
+
+package "Transaction Broadcaster Service" {
+  [Kafka Consumer]
+}
+
+database "Database" {
+  [Transaction Status Table]
+}
+ 
+Client --> [API Server] : POST /broadcast_transaction
+[API Server] --> [Kafka Producer] : send transaction
+[Kafka Producer] --> [Kafka] : publish transaction message
+
+[Kafka] --> [Kafka Consumer]: consume transaction message
+
+[Kafka Consumer] --> [Blockchain Node] : RPC request to broadcast transaction
+[Kafka Consumer] --> [Blockchain Node] : Retry fail broadcast
+
+[Kafka Consumer] --> [Transaction Status Table] : Writes transaction status
+
+[Admin Web Page] --> [Transaction Status Table] : Queries transaction status
+[Admin Web Page] --> [Kafka Consumer] : Retries failed transaction
+
+@enduml
