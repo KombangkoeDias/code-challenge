@@ -110,6 +110,8 @@ function FancyForm() {
             <Button
               className="fancy-form__clear__button"
               onClick={() => {
+                setError("");
+                setSuccess("");
                 setEthAddress("");
                 setAmount("");
                 setOtp("");
