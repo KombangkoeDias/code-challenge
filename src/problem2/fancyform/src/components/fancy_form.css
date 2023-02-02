@@ -31,6 +31,12 @@
     color: #f44336;
   }
 
+  .fancy-form__success {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #4BB543;
+  }
+
   .fancy-form__button_col {
     display: inline-block;
     margin-right: 1rem;
@@ -74,5 +80,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.original-height {
+  height: 50px;
+}
+
+.small-height {
+  height: 30px;
+}
+
+.fancy-form__spinner_row{
+  margin-top: 20px
 }
