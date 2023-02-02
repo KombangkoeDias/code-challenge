@@ -1,3 +1,5 @@
+require("dotenv").config();
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -66,8 +68,17 @@ module.exports = {
     //
     development: {
       host: "127.0.0.1", // Localhost (default: none)
-      port: 8545, // Standard Ethereum port (default: none)
+      //port: 8545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
+    },
+    testnet: {
+      provider: function () {
+        return new HDWalletProvider(
+          process.env.MNEMONIC,
+          "https://data-seed-prebsc-2-s3.binance.org:8545"
+        );
+      },
+      network_id: "*",
     },
     //
     // An additional network, but with some advanced options…
