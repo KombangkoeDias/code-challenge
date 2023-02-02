@@ -9,5 +9,5 @@ for the second token address: this wallet has 20000000000 wei
 
 After running the script in script/getBalances.js using command node script/getBalances.js
 
-w[e see that it will print out this result.
+we can see that it will print out this result.
 ![result](resources/result.png)
